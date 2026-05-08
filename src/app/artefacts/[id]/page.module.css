@@ -233,8 +233,22 @@
 	border: 1px solid var(--color-text);
 	border-radius: 10px;
 	padding: 3px 10px;
-	font-size: 0.625rem;
+	font-size: 12px;
 	white-space: nowrap;
+}
+
+.enquireTag {
+	border: 1px solid var(--color-secondary);
+	border-radius: 10px;
+	padding: 3px 10px;
+	font-size: 12px;
+	white-space: nowrap;
+	color: var(--color-secondary);
+
+	&:hover {
+		background-color: var(--color-secondary);
+		color: var(--color-text-inverse);
+	}
 }
 
 .backLink {

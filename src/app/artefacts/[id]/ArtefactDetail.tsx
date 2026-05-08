@@ -133,6 +133,11 @@ export function ArtefactDetail({ item }: { item: ArtefactsItem }) {
                       {tag.name}
                     </span>
                   ))}
+                  <a
+                    href={`mailto:mannat@misaal.co?subject=${item.code} - ${item.title.toUpperCase()}`}
+                  >
+                    <span className={styles.enquireTag}>enquire</span>
+                  </a>
                 </div>
               )}
             </div>
