@@ -1,7 +1,7 @@
 .aboutRoot {
 	flex: 1;
 	display: flex;
-	overflow: hidden;
+	margin-top: 2rem;
 
 	@media (max-width: 768px) {
 		overflow: visible;
