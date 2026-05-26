@@ -150,8 +150,10 @@
 	}
 }
 
-.imageWrapper {
-	position: relative;
+.imagesColumn {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 	min-width: 300px;
 	max-width: 600px;
 	margin-right: 1.5rem;
@@ -160,4 +162,18 @@
 	@media (max-width: 768px) {
 		margin: 0 1.5rem;
 	}
+}
+
+.imageWrapper {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 3 / 2;
+}
+
+.imageWrapperPortrait {
+	aspect-ratio: 2 / 3;
+}
+
+.image {
+	object-fit: cover;
 }
