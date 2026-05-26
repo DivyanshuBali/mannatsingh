@@ -18,8 +18,8 @@ export function ArtefactsList({ items }: { items: readonly ArtefactsItem[] }) {
   }
 
   return (
-    <>
-      <section className={styles.imageContainer}>
+    <section className={styles.artefactsListRoot}>
+      <div className={styles.imageContainer}>
         {hoveredItem && (
           <Image
             src={hoveredItem.bannerImage}
@@ -28,9 +28,9 @@ export function ArtefactsList({ items }: { items: readonly ArtefactsItem[] }) {
             className={styles.artefactsImage}
           />
         )}
-      </section>
+      </div>
 
-      <section className={styles.listContainer}>
+      <div className={styles.listContainer}>
         <ul>
           {items.map((item) => (
             <Link key={item.id} href={`/artefacts/${item.id}`}>
@@ -43,9 +43,9 @@ export function ArtefactsList({ items }: { items: readonly ArtefactsItem[] }) {
             </Link>
           ))}
         </ul>
-      </section>
+      </div>
 
-      <section className={styles.mobileCards}>
+      <div className={styles.mobileCards}>
         {items.map((item) => (
           <Link
             key={item.id}
@@ -65,7 +65,7 @@ export function ArtefactsList({ items }: { items: readonly ArtefactsItem[] }) {
             <p className={styles.mobileCardTitle}>{item.title}</p>
           </Link>
         ))}
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

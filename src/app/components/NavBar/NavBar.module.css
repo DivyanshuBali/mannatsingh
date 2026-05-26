@@ -1,6 +1,7 @@
 .nav {
 	margin-right: 4rem;
 	padding: 1rem 2rem;
+	height: var(--height-navbar);
 
 	ul {
 		display: flex;

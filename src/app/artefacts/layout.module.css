@@ -1,10 +1,10 @@
-.archiveLayout {
+.artefactsLayout {
 	display: flex;
 	flex-direction: column;
 	height: 100dvh;
 	overflow: hidden;
 
-	@media (max-width: 768px) {
+	@media (max-width: 900px) {
 		height: auto;
 		min-height: 100dvh;
 		overflow-y: auto;

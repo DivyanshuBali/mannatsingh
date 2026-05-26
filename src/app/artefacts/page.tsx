@@ -12,7 +12,7 @@ async function ArtefactsContent() {
 
 export default function ArtefactsPage() {
   return (
-    <main className={styles.artefactsRoot}>
+    <main className={styles.main}>
       <Suspense fallback={<Loader />}>
         <ArtefactsContent />
       </Suspense>

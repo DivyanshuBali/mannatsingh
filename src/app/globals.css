@@ -23,6 +23,9 @@
 	--color-warning: #f59e0b;
 	--color-error: #ef4444;
 	--color-info: #3b82f6;
+
+	/* heights */
+	--height-navbar: 55px;
 }
 
 /* RESET STYLES: Normalize + Custom Reset */
