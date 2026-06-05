@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useRef, useState } from "react";
-import type { ArtefactsItem } from "../archives";
+import type { ArtefactsItem } from "@/_utils/types";
 import styles from "./page.module.css";
 
 const SWIPE_THRESHOLD = 50;

@@ -1,8 +1,7 @@
 import "server-only";
 
 import type { DocumentReference } from "firebase-admin/firestore";
-import type { ArtefactsItem } from "@/artefacts/archives";
-import type { LogItem } from "@/logs/LogsLayout";
+import type { ArtefactsItem, LogItem } from "@/_utils/types";
 import { db } from "./firebase-admin";
 
 // ─── Helpers ─────────────────────────────────────────────────
@@ -45,10 +44,21 @@ export async function getArtefactById(id: string): Promise<ArtefactsItem | null>
 	return { id: doc.id, ...data, tags } as ArtefactsItem;
 }
 
+// ─── Studies ────────────────────────────────────────────────────
+
+export async function getStudies(): Promise<LogItem[]> {
+	const snapshot = await db.collection("studies").get();
+
+	return snapshot.docs.map((doc) => ({
+		id: doc.id,
+		...doc.data(),
+	})) as LogItem[];
+}
+
 // ─── Logs ────────────────────────────────────────────────────
 
 export async function getLogs(): Promise<LogItem[]> {
-	const snapshot = await db.collection("studies").get();
+	const snapshot = await db.collection("logs").get();
 
 	return snapshot.docs.map((doc) => ({
 		id: doc.id,
