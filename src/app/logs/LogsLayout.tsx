@@ -29,7 +29,7 @@ export function LogsLayout({ logs }: { logs: readonly LogItem[] }) {
       <section className={styles.listContainer}>
         <ol>
           {logs.map((log) => (
-            <Link key={log.code} href={`/studies/${log.id}`}>
+            <Link key={log.code} href={`/logs/${log.id}`}>
               <li
                 onMouseEnter={() => handleMouseEnter(log)}
                 onMouseLeave={handleMouseLeave}
@@ -56,7 +56,7 @@ export function LogsLayout({ logs }: { logs: readonly LogItem[] }) {
         {logs.map((log) => (
           <Link
             key={log.code}
-            href={`/studies/${log.id}`}
+            href={`/logs/${log.id}`}
             className={styles.mobileCard}
           >
             <div className={styles.mobileCardImage}>

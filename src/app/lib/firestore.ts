@@ -2,70 +2,64 @@ import "server-only";
 
 import type { DocumentReference } from "firebase-admin/firestore";
 import type { ArtefactsItem } from "@/artefacts/archives";
-import type { LogItem } from "@/studies/LogsLayout";
+import type { LogItem } from "@/logs/LogsLayout";
 import { db } from "./firebase-admin";
 
 // ─── Helpers ─────────────────────────────────────────────────
 
-async function resolveRefs(
-  refs: DocumentReference[],
-): Promise<Record<string, unknown>[]> {
-  if (refs.length === 0) return [];
+async function resolveRefs(refs: DocumentReference[]): Promise<Record<string, unknown>[]> {
+	if (refs.length === 0) return [];
 
-  const snapshots = await db.getAll(...refs);
+	const snapshots = await db.getAll(...refs);
 
-  return snapshots
-    .filter((snap) => snap.exists)
-    .map((snap) => ({ id: snap.id, ...snap.data() }));
+	return snapshots.filter((snap) => snap.exists).map((snap) => ({ id: snap.id, ...snap.data() }));
 }
 
 // ─── Artefacts ───────────────────────────────────────────────
 
 export async function getArtefacts(): Promise<ArtefactsItem[]> {
-  const snapshot = await db.collection("artefacts").get();
+	const snapshot = await db.collection("artefacts").get();
 
-  const items = await Promise.all(
-    snapshot.docs.map(async (doc) => {
-      const data = doc.data();
-      const tagRefs: DocumentReference[] = data.tags ?? [];
-      const tags = await resolveRefs(tagRefs);
+	const items = await Promise.all(
+		snapshot.docs.map(async (doc) => {
+			const data = doc.data();
+			const tagRefs: DocumentReference[] = data.tags ?? [];
+			const tags = await resolveRefs(tagRefs);
 
-      return { id: doc.id, ...data, tags } as ArtefactsItem;
-    }),
-  );
+			return { id: doc.id, ...data, tags } as ArtefactsItem;
+		}),
+	);
 
-  return items;
+	return items;
 }
 
-export async function getArtefactById(
-  id: string,
-): Promise<ArtefactsItem | null> {
-  const doc = await db.collection("artefacts").doc(id).get();
+export async function getArtefactById(id: string): Promise<ArtefactsItem | null> {
+	const doc = await db.collection("artefacts").doc(id).get();
 
-  if (!doc.exists) return null;
+	if (!doc.exists) return null;
 
-  const data = doc.data() as FirebaseFirestore.DocumentData;
-  const tagRefs: DocumentReference[] = data.tags ?? [];
-  const tags = await resolveRefs(tagRefs);
+	const data = doc.data() as FirebaseFirestore.DocumentData;
+	const tagRefs: DocumentReference[] = data.tags ?? [];
+	const tags = await resolveRefs(tagRefs);
 
-  return { id: doc.id, ...data, tags } as ArtefactsItem;
+	return { id: doc.id, ...data, tags } as ArtefactsItem;
 }
 
 // ─── Logs ────────────────────────────────────────────────────
 
 export async function getLogs(): Promise<LogItem[]> {
-  const snapshot = await db.collection("studies").get();
+	const snapshot = await db.collection("studies").get();
 
-  return snapshot.docs.map((doc) => ({
-    id: doc.id,
-    ...doc.data(),
-  })) as LogItem[];
+	return snapshot.docs.map((doc) => ({
+		id: doc.id,
+		...doc.data(),
+	})) as LogItem[];
 }
 
 export async function getLogById(id: string): Promise<LogItem | null> {
-  const doc = await db.collection("studies").doc(id).get();
+	const doc = await db.collection("studies").doc(id).get();
 
-  if (!doc.exists) return null;
+	if (!doc.exists) return null;
 
-  return { id: doc.id, ...doc.data() } as LogItem;
+	return { id: doc.id, ...doc.data() } as LogItem;
 }

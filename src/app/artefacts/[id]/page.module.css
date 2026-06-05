@@ -260,16 +260,14 @@
 		font-size: 1rem;
 		color: #cac8c8;
 		transition: color 0.2s ease;
+
+		@media (max-width: 768px) {
+			color: var(--color-text);
+			text-decoration: underline;
+		}
 	}
 
 	a:hover {
 		color: var(--color-text);
-	}
-
-	@media (max-width: 768px) {
-		a {
-			color: var(--color-text);
-			text-decoration: underline;
-		}
 	}
 }

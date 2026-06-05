@@ -102,12 +102,10 @@ export default function NavBar({ fullWidth = false }: NavBarProps) {
           {!fullWidth && <div className={styles.divider} />}
           <li>
             <Link
-              href="/studies"
-              className={
-                pathname.includes("/studies") ? styles.muted : undefined
-              }
+              href="/logs"
+              className={pathname.includes("/logs") ? styles.muted : undefined}
             >
-              studies
+              logs
             </Link>
           </li>
           <li>

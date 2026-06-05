@@ -5,17 +5,17 @@ import { ArtefactsList } from "./ArtefactsList";
 import styles from "./page.module.css";
 
 async function ArtefactsContent() {
-  const items = await getArtefacts();
+	const items = await getArtefacts();
 
-  return <ArtefactsList items={items} />;
+	return <ArtefactsList items={items} />;
 }
 
 export default function ArtefactsPage() {
-  return (
-    <main className={styles.main}>
-      <Suspense fallback={<Loader />}>
-        <ArtefactsContent />
-      </Suspense>
-    </main>
-  );
+	return (
+		<main className={styles.main}>
+			<Suspense fallback={<Loader />}>
+				<ArtefactsContent />
+			</Suspense>
+		</main>
+	);
 }
