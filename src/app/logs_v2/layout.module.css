@@ -1,4 +1,4 @@
-.logsLayout {
+.rootLayout {
 	display: flex;
 	flex-direction: column;
 	height: 100dvh;

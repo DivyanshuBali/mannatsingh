@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
 import type { ArtefactsItem } from "@/_utils/types";
+import { EnquireTag } from "@/components/EnquireTag/EnquireTag";
+import { Tag } from "@/components/Tag/Tag";
 import styles from "./page.module.css";
 
 const SWIPE_THRESHOLD = 50;
@@ -122,13 +124,9 @@ export function ArtefactDetail({ item }: { item: ArtefactsItem }) {
 							{item.tags.length > 0 && (
 								<div className={styles.tags}>
 									{item.tags.map((tag) => (
-										<span key={tag.id} className={styles.tag}>
-											{tag.name}
-										</span>
+										<Tag key={tag.id} tag={tag} />
 									))}
-									<a href={`mailto:mannat@misaal.co?subject=${item.code} - ${item.title.toUpperCase()}`}>
-										<span className={styles.enquireTag}>enquire</span>
-									</a>
+									<EnquireTag code={item.code} title={item.title} />
 								</div>
 							)}
 						</div>

@@ -5,7 +5,7 @@
 	flex: 1;
 	min-height: 0;
 	width: 100%;
-	gap: 6rem;
+	gap: 60px;
 
 	@media (max-width: 768px) {
 		display: block;
@@ -15,8 +15,7 @@
 .listContainer {
 	max-height: 500px;
 	overflow-y: auto;
-	max-width: 545px;
-	width: 40%;
+	flex: 1;
 	flex-shrink: 0;
 
 	ol {
@@ -45,10 +44,9 @@
 
 .imageContainer {
 	position: relative;
-	max-width: 418px;
-	width: 35%;
-	aspect-ratio: 2 / 3;
+	flex: 1;
 	flex-shrink: 0;
+	height: 100%;
 
 	@media (max-width: 768px) {
 		display: none;
