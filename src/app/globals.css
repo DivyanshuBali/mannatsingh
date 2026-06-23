@@ -33,10 +33,20 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	cursor:
-		url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Ccircle cx='5' cy='5' r='5' fill='black'/%3E%3C/svg%3E")
-		5 5,
-		auto;
+}
+
+@media (pointer: fine) {
+	* {
+		cursor:
+			url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10'%3E%3Ccircle cx='5' cy='5' r='5' fill='black'/%3E%3C/svg%3E")
+			5 5,
+			auto;
+	}
+
+	html.delayed-cursor,
+	html.delayed-cursor * {
+		cursor: none;
+	}
 }
 
 html {
