@@ -1,0 +1,42 @@
+.logsMobileLayout {
+	@media screen and (min-width: 768px) {
+		display: none;
+	}
+
+	flex: 1;
+	height: 100%;
+	min-height: 0;
+	width: 100%;
+}
+
+.swiper {
+	height: 100%;
+	width: 100%;
+}
+
+.slide {
+	width: 285px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0.25;
+	transition: opacity 0.3s ease;
+}
+
+.slideActive {
+	opacity: 1;
+}
+
+.logCard {
+	width: 285px;
+	height: 400px;
+	overflow: hidden;
+	border-radius: 12px;
+	position: relative;
+	flex-shrink: 0;
+
+	img {
+		object-fit: cover;
+	}
+}

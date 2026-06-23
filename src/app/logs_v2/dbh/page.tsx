@@ -1,12 +1,12 @@
 import styles from "../logs.module.css";
 
-const HEYZINE_FLIPBOOK_URL = "https://heyzine.com/flip-book/a1a1b82a65.html";
+const HEYZINE_FLIPBOOK_URL = "https://heyzine.com/flip-book/aa7b8772ab.html";
 
-export default function Log1Page() {
+export default function DBHLogPage() {
   return (
     <main className={styles.main}>
       <iframe
-        title="Log 1 flip book"
+        title="DBH flip book"
         src={HEYZINE_FLIPBOOK_URL}
         className={styles.flipbook}
         loading="lazy"

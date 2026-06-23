@@ -1617,6 +1617,11 @@ styled-jsx@5.1.6:
   dependencies:
     client-only "0.0.1"
 
+swiper@^12.2.0:
+  version "12.2.0"
+  resolved "https://registry.yarnpkg.com/swiper/-/swiper-12.2.0.tgz#f6daa886465abd1bbc42be2f2ce1827cd03c91ea"
+  integrity sha512-K8uXsBZU6ME97Ia3xbBge8IRCnR1lOmIILzvY/jGVic7dSTQ530s3uO8RvXbPUtkkXLWIwmZLRPbtDxRWVAFdg==
+
 teeny-request@^9.0.0:
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/teeny-request/-/teeny-request-9.0.0.tgz#18140de2eb6595771b1b02203312dfad79a4716d"
