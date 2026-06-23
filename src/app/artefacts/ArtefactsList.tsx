@@ -1,5 +1,6 @@
 "use client";
 
+import * as motion from "motion/react-client";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -18,7 +19,12 @@ export function ArtefactsList({ items }: { items: readonly ArtefactsItem[] }) {
   }
 
   return (
-    <section className={styles.artefactsListRoot}>
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8, ease: "easeInOut", delay: 0.2 }}
+      className={styles.artefactsListRoot}
+    >
       <div className={styles.imageContainer}>
         {hoveredItem && (
           <Image
@@ -66,6 +72,6 @@ export function ArtefactsList({ items }: { items: readonly ArtefactsItem[] }) {
           </Link>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }

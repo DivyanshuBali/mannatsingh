@@ -1,3 +1,4 @@
+import * as motion from "motion/react-client";
 import Image from "next/image";
 import type { AccordionSection } from "./Accordion";
 import { Accordion } from "./Accordion";
@@ -139,7 +140,12 @@ const sections: AccordionSection[] = [
 
 export default function AboutPage() {
   return (
-    <main className={styles.aboutRoot}>
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8, ease: "easeInOut", delay: 0.2 }}
+      className={styles.aboutRoot}
+    >
       <div className={styles.content}>
         <div className={styles.left}>
           <div className={styles.leftContent}>
@@ -180,6 +186,6 @@ export default function AboutPage() {
           </div>
         </div>
       </div>
-    </main>
+    </motion.main>
   );
 }
