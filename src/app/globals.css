@@ -26,6 +26,9 @@
 
 	/* heights */
 	--height-navbar: 55px;
+
+	/* layout */
+	--max-content-width: 1440px;
 }
 
 /* RESET STYLES: Normalize + Custom Reset */
@@ -51,13 +54,21 @@
 
 html {
 	scroll-behavior: smooth;
+	background-color: var(--color-background);
 }
 
 body {
-	height: 100dvh;
+	min-height: 100dvh;
 	background-color: var(--color-background);
 	color: var(--color-text);
 	-webkit-tap-highlight-color: transparent;
+}
+
+.siteContent {
+	width: 100%;
+	max-width: var(--max-content-width);
+	min-height: 100dvh;
+	margin-inline: auto;
 }
 
 a {

@@ -41,7 +41,7 @@ export default function RootLayout({
       </head>
       <body>
         <DelayedCursor />
-        {children}
+        <div className="siteContent">{children}</div>
       </body>
     </html>
   );
