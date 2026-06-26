@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import styles from "./NavBar.module.css";
 
 interface NavBarProps {
@@ -28,6 +29,11 @@ export default function NavBar({ fullWidth = false }: NavBarProps) {
   const [isHovering, setIsHovering] = useState(false);
   const [isReady, setIsReady] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [portalTarget, setPortalTarget] = useState<HTMLElement | null>(null);
+
+  useEffect(() => {
+    setPortalTarget(document.body);
+  }, []);
 
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 768px)");
@@ -131,25 +137,31 @@ export default function NavBar({ fullWidth = false }: NavBarProps) {
         </ul>
       </nav>
 
-      {isHomePage && shouldPreload && (
-        <video
-          ref={videoRef}
-          className={[
-            styles.hoverVideo,
-            isMobile ? styles.mobileVideo : "",
-            (isHovering || isMobile) && isReady ? styles.hoverVideoReady : "",
-          ]
-            .filter(Boolean)
-            .join(" ")}
-          src={HOVER_VIDEO_SRC}
-          poster={HOVER_VIDEO_POSTER}
-          muted
-          loop
-          playsInline
-          preload="auto"
-          onCanPlay={() => setIsReady(true)}
-        />
-      )}
+      {portalTarget &&
+        isHomePage &&
+        shouldPreload &&
+        createPortal(
+          <video
+            ref={videoRef}
+            className={[
+              styles.hoverVideo,
+              isMobile ? styles.mobileVideo : "",
+              (isHovering || isMobile) && isReady
+                ? styles.hoverVideoReady
+                : "",
+            ]
+              .filter(Boolean)
+              .join(" ")}
+            src={HOVER_VIDEO_SRC}
+            poster={HOVER_VIDEO_POSTER}
+            muted
+            loop
+            playsInline
+            preload="auto"
+            onCanPlay={() => setIsReady(true)}
+          />,
+          portalTarget,
+        )}
     </>
   );
 }
