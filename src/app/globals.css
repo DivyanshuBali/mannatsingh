@@ -1,4 +1,5 @@
 /* COLOUR VARIABLES */
+/** biome-ignore-all lint/suspicious/noEmptyBlock: empty block for reference */
 :root {
 	/* Primary palette */
 	--color-primary: #253b76;

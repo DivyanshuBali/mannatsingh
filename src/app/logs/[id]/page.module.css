@@ -70,10 +70,8 @@
 		font-size: 0.75rem;
 		line-height: 1.6;
 		white-space: pre-wrap;
-	}
 
-	@media (max-width: 768px) {
-		p {
+		@media (max-width: 768px) {
 			text-align: justify;
 		}
 	}

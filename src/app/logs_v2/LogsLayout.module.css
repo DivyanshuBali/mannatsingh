@@ -1,0 +1,40 @@
+.listContainer {
+	max-height: 500px;
+	overflow-y: auto;
+	flex: 1;
+	flex-shrink: 0;
+
+	ol {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+
+		li {
+			font-size: 3.125rem;
+			font-weight: 700;
+			color: var(--color-text-muted);
+			line-height: 1.2;
+			text-align: end;
+			text-transform: lowercase;
+
+			&:hover {
+				color: var(--color-text);
+			}
+		}
+	}
+
+	@media (max-width: 768px) {
+		display: none;
+	}
+}
+
+.imageContainer {
+	position: relative;
+	flex: 1;
+	flex-shrink: 0;
+	height: 100%;
+
+	@media (max-width: 768px) {
+		display: none;
+	}
+}

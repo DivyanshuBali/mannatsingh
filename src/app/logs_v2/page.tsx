@@ -5,17 +5,17 @@ import { LogsLayout } from "./LogsLayout";
 import styles from "./page.module.css";
 
 async function LogsContent() {
-  const logs = await getLogs();
+	const logs = await getLogs();
 
-  return <LogsLayout logs={logs} />;
+	return <LogsLayout logs={logs} />;
 }
 
 export default function LogsPage() {
-  return (
-    <main className={styles.logsRoot}>
-      <Suspense fallback={<Loader />}>
-        <LogsContent />
-      </Suspense>
-    </main>
-  );
+	return (
+		<main className={styles.logsRoot}>
+			<Suspense fallback={<Loader />}>
+				<LogsContent />
+			</Suspense>
+		</main>
+	);
 }

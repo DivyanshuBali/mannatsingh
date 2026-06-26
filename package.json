@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "typecheck": "tsc --noEmit -p tsconfig.typecheck.json",
     "lint": "biome check",
     "lint-write": "biome check --write",
     "format": "biome format",
@@ -14,11 +15,12 @@
   },
   "dependencies": {
     "firebase-admin": "^13.6.0",
-    "motion": "^12.23.25",
+    "motion": "^12.40.0",
     "next": "16.0.10",
     "react": "19.2.0",
     "react-dom": "19.2.0",
-    "server-only": "^0.0.1"
+    "server-only": "^0.0.1",
+    "swiper": "^12.2.0"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
