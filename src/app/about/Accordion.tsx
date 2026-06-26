@@ -16,16 +16,26 @@ interface AccordionProps {
 }
 
 export function Accordion({ sections, defaultOpenIndex = 0 }: AccordionProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(defaultOpenIndex);
+  const [openIndices, setOpenIndices] = useState<Set<number>>(
+    () => new Set([defaultOpenIndex]),
+  );
 
   function toggle(index: number) {
-    setOpenIndex(openIndex === index ? null : index);
+    setOpenIndices((prev) => {
+      const next = new Set(prev);
+      if (next.has(index)) {
+        next.delete(index);
+      } else {
+        next.add(index);
+      }
+      return next;
+    });
   }
 
   return (
     <div className={styles.accordion}>
       {sections.map((section, index) => {
-        const isOpen = openIndex === index;
+        const isOpen = openIndices.has(index);
         return (
           <div
             key={section.title}

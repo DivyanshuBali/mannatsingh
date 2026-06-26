@@ -1,5 +1,6 @@
 "use client";
 
+import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -18,28 +19,47 @@ export function ArtefactsList({ items }: { items: readonly ArtefactsItem[] }) {
   }
 
   return (
-    <section className={styles.artefactsListRoot}>
+    <motion.section
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8, ease: "easeInOut", delay: 0.2 }}
+      className={styles.artefactsListRoot}
+    >
       <div className={styles.imageContainer}>
-        {hoveredItem && (
-          <Image
-            src={hoveredItem.bannerImage}
-            alt={hoveredItem.title}
-            fill
-            className={styles.artefactsImage}
-          />
-        )}
+        <AnimatePresence>
+          {hoveredItem && (
+            <motion.div
+              key={hoveredItem.id}
+              className={styles.imageWrapper}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+            >
+              <Image
+                src={hoveredItem.bannerImage}
+                alt={hoveredItem.title}
+                fill
+                className={styles.artefactsImage}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       <div className={styles.listContainer}>
         <ul>
           {items.map((item) => (
             <Link key={item.id} href={`/artefacts/${item.id}`}>
-              <li
+              <motion.li
+                initial={{ backgroundPosition: "100% 0" }}
+                whileHover={{ backgroundPosition: "0% 0" }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
                 onMouseEnter={() => handleMouseEnter(item)}
                 onMouseLeave={handleMouseLeave}
               >
                 {item.title}
-              </li>
+              </motion.li>
             </Link>
           ))}
         </ul>
@@ -66,6 +86,6 @@ export function ArtefactsList({ items }: { items: readonly ArtefactsItem[] }) {
           </Link>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }

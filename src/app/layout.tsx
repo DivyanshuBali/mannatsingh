@@ -3,6 +3,7 @@ import "./reset.css";
 
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { DelayedCursor } from "./components/DelayedCursor/DelayedCursor";
 
 export const metadata: Metadata = {
   title: "Mannat Singh™",
@@ -38,7 +39,10 @@ export default function RootLayout({
         />
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
       </head>
-      <body>{children}</body>
+      <body>
+        <DelayedCursor />
+        <div className="siteContent">{children}</div>
+      </body>
     </html>
   );
 }
