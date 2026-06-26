@@ -163,21 +163,21 @@ export default function AboutPage() {
                 className={styles.image}
               />
             </div>
-            <div className={styles.imageWrapper}>
-              <Image
-                src="/mannatandchairs.jpeg"
-                alt="Mannat Singh with chairs"
-                fill
-                sizes="(max-width: 768px) 100vw, 600px"
-                className={styles.image}
-              />
-            </div>
             <div
               className={`${styles.imageWrapper} ${styles.imageWrapperPortrait}`}
             >
               <Image
                 src="/chairsandac.jpeg"
                 alt="Chairs and air conditioning unit"
+                fill
+                sizes="(max-width: 768px) 100vw, 600px"
+                className={styles.image}
+              />
+            </div>
+            <div className={styles.imageWrapper}>
+              <Image
+                src="/mannatandchairs.jpeg"
+                alt="Mannat Singh with chairs"
                 fill
                 sizes="(max-width: 768px) 100vw, 600px"
                 className={styles.image}
