@@ -107,32 +107,13 @@ export default function NavBar({ fullWidth = false }: NavBarProps) {
           </li>
           {!fullWidth && <div className={styles.divider} />}
           <li>
-            <Link
-              href="/studies"
-              className={
-                pathname.includes("/studies") ? styles.muted : undefined
-              }
-            >
-              studies
-            </Link>
+            <Link href="/studies">studies</Link>
           </li>
           <li>
-            <Link
-              href="/artefacts"
-              className={
-                pathname.includes("/artefacts") ? styles.muted : undefined
-              }
-            >
-              artefacts
-            </Link>
+            <Link href="/artefacts">artefacts</Link>
           </li>
           <li>
-            <Link
-              href="/about"
-              className={pathname.includes("/about") ? styles.muted : undefined}
-            >
-              about
-            </Link>
+            <Link href="/about">about</Link>
           </li>
         </ul>
       </nav>
@@ -146,9 +127,7 @@ export default function NavBar({ fullWidth = false }: NavBarProps) {
             className={[
               styles.hoverVideo,
               isMobile ? styles.mobileVideo : "",
-              (isHovering || isMobile) && isReady
-                ? styles.hoverVideoReady
-                : "",
+              (isHovering || isMobile) && isReady ? styles.hoverVideoReady : "",
             ]
               .filter(Boolean)
               .join(" ")}
