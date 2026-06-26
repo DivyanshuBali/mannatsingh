@@ -107,7 +107,7 @@ export default function NavBar({ fullWidth = false }: NavBarProps) {
           </li>
           {!fullWidth && <div className={styles.divider} />}
           <li>
-            <Link href="/studies">studies</Link>
+            <Link href="/logs_v2">logs</Link>
           </li>
           <li>
             <Link href="/artefacts">artefacts</Link>
